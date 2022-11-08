@@ -1,4 +1,4 @@
-#This is under currently construction
+#This is under currently construction.
 
 #Forward
 If you are chasing low latency controllers and have never tested your display lag, you are approaching this *completely backwards*. If you are trying to blame controller latency before video as the culprit for how poorly you play games, reconsider. LAG is cumulative from input to output as far as your perception is concerned.
