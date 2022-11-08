@@ -13,7 +13,9 @@ Before we dive into the BLEGamepad/BlueRetro stuff, it's useful to understand ho
 
 ## What you need:
 [x] A controller      - This acts as the "Transmitter" for the keypress
+
 [x] Arduino Pro Micro - This performs time based calculation for Press->Recieve
+
 [x] Your reciver      - This is the "Recieving" device 
 
 ## Detailed guide on how Latency testing is performed on the Mister Platform:
