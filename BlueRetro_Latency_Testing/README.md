@@ -55,8 +55,9 @@ There are some caveats you should be aware of I have spent *many* hours beating 
 
 # Latency Testing with [ESP32-BLE-Gamepad](https://github.com/lemmingDev/ESP32-BLE-Gamepad)
 ESP32-BLE-Gamepad does not contain any "specific" latency testing function. For testing you simply define a button that works when pulled low and to connect it to the correct controller facing arduino pin. In the code linked this pin should connect to arduino pin 5.
+ -  A lesson learned here is to avoid sending a Button ID/Number used elsewhere in code as it will self cancel in your initial loop not being detected **OR** make sure your code contains a check for **all** places that should use the pin and send the update accordingly.
 
-For example
+Defining a latency pin code example:
 ```
       if (digitalRead(latPin) == LOW) { //when arduino pulls this pin low send button press
         bleGamepad.press(BUTTON_1);
