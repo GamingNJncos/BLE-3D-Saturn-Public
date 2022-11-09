@@ -16,14 +16,16 @@ Before we dive into the BLEGamepad/BlueRetro stuff, it's useful to understand ho
 
 - [x] Arduino Pro Micro - This performs time based calculation for Press->Recieve
 
-- [x] Your reciver      - This is the "Recieving" device 
+- [x] Your reciver      - This is the "Receiving" device
+ - For Mister this is via a custom USB Cable
+ - It's BlueRetro for Bluetooth Controllers
 
-## Detailed guide on how Latency testing is performed on the Mister Platform:
+## Detailed guide on how latency testing is performed on the Mister Platform:
 https://www.cathoderayblog.com/lag-test-your-controller-mister-fpga-input-latency-tester/
 
 I strongly advise taking a look over the content above as it will make everything from here much easier to understand. There are also a fair amount of videos floating around about this. Effectively you're using an arduino to "press" a button, and then another pin which will detect how fast that button is recieved on the other end.  The arduino acts as a timer to count the time from when the press is sent to the time it is received and starts the next loop. After *10,000+* itterations, you have a good average input latency.
 
-## A big Mister Latency Controller test List:
+## The BIG Mister Controller Latency List:
 https://rpubs.com/misteraddons/inputlatency
 
 This is a list of controller input latency tests providing a useful comparison across a wide array of controllers as to what is "low latency", whats "Normal" and what is unbearably slow. 
@@ -34,24 +36,25 @@ Darthcloud has included in BlueRetro a method to perform testing with the same a
 
 There are some caveats you should be aware of I have spent *many* hours beating my head on a desk over.
 
-- [x] You **MUST** use the "parallel_1P_external.bin" when flashing firmware 
+- [x] You **MUST** use the "parallel_1P_external.bin" when flashing firmware (Any firmware release version)
  - Console specific or embedded firmwares wont work
- - DO NOT connect your BR reciever to a console (only external power)
+ - DO NOT connect your BR reciever to a console (Use **ONLY** external power)
 	  
 - [x] Before connecting your controller you **MUST** enable the "Latency Test" profile
  - If you fail to do this before connecting the controller you will have to power off the controller and reset blueretro or wait some time
- - Note: This often does not survive power down
+ - Note: This often does not survive power down so confirm each time you need to power the BR adapter up again
 	  
 - [x] You **MUST** have access to GPIO26 on your BlueRetro testing device.  
- - This could be risky if you only have console specific versions that require modification for output pin and the external power (eg. Pre-built N64 Adapter)
+ - This could be risky if you only have console BR specific versions that require modification for output pin and the external power (eg. Pre-built N64 Adapter)
 
 - [x] You **MUST** have access to the PCB of your controller to solder on a wire for arduino to "press" your testing button
  - This typically requires modification to your controller PCB, like scraping away the coating to hit a copper trace.
- - This is also why my Lightwing PCBs have a dedicated pin on them to avoid damage.
+ - This is also why my 3D Controller Lightwing PCBs have a dedicated pin on them to avoid damage.
+ - Some controllers (including the Saturn 3D Pad) require a specific voltage (not just ground) so you may need to identify expected resistance
 
 
 # Latency Testing with [ESP32-BLE-Gamepad](https://github.com/lemmingDev/ESP32-BLE-Gamepad)
-ESP32-BLE-Gamepad does not contain any "specific" latency testing function, you simply define a button that works when pulled low and to connect it to the arduino. In the code linked this pin should connect to arduino pin5.
+ESP32-BLE-Gamepad does not contain any "specific" latency testing function. For testing you simply define a button that works when pulled low and to connect it to the correct controller facing arduino pin. In the code linked this pin should connect to arduino pin 5.
 
 For example
 ```
@@ -85,7 +88,6 @@ For example
   8. Connect GPIO26 (some boards may show as IO26) on BR to Pin 2 of the Arduino
  
   9. Using **Chrome Browser** [connect to BR over bluetooth](https://hackaday.io/project/170365-blueretro/log/180020-web-bluetooth-ble-configuration-interface) and set the mapping profile to "Latency Test" and click save 
-
  - Note:  There is a "Test" profile in the second box - do not use this.
 
  - Example of the correct setting:
@@ -93,7 +95,7 @@ For example
      
  ### Start Latency Testing    
  10. Connect to the serial console of your arduino com port (115200 - 8 n 1) 
-  - Failure to connect to serial will not allow the code to start running
+ - Failure to connect to serial will not allow the code to start running
      
  11. Power on your controller
 
