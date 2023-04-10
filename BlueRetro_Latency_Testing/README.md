@@ -1,6 +1,6 @@
-# This is under currently construction.
+# This is currently under construction.
 
-# Forward
+# Forward (Rant)
 If you are chasing low latency controllers and have never tested your display lag, you are approaching this *completely backwards*. If you are trying to blame controller latency before video as the culprit for how poorly you play games, reconsider. LAG is cumulative from input to output as far as your perception is concerned.
 
 Some of the better projectors for example alone add 30-70ms of lag. It's not uncommon to see with a series of connected devices in path 40-60ms before hitting your "2ms" LCD. Even your LCD is unlikely to perform at advertised speeds outside of VERY specific configurations. Wrong setting, add 18+ms.  That's omitting any upscaler, AV Reciver in the middle, media converters, hdmi switches, etc - each of which may have setting based penalties. 
@@ -101,3 +101,5 @@ Defining a latency pin code example:
  11. Power on your controller
 
  12. Check your Serial console to the arduino and confirm it is incrimenting. If so Allow 10k+ itterations to complete to get your latency data.
+     Example of the blinking you should see when testing is working correctly.  Note, I you will only see 1 blink (on arduino) vs my install.
+     Seizure Warning: ![the right way](https://twitter.com/GamingNJncos/status/1548031893722972160)
