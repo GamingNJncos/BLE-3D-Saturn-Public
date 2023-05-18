@@ -17,25 +17,27 @@ From there [Humble Bazooka](https://twitter.com/humblebazooka) and I have spent 
 ## **PCBs** ##
 There are 2 publicly availble DIY pcb's for "dev kits". There are various issues with them and aren't intended for retail use, but you can build one yourself today.
 
-**Heavywing**
-- The original PCB. Take the above patents put them in a blender. It adds LCD Support, Motion Controls & Rumble. You can use the Lightwing code (better performance) on a Heavywing PCB but will need to change some pin mappings.
-- PCB: https://oshpark.com/shared_projects/ki7HbZV4
-<BR> <img src="https://i.imgur.com/oe6XZfD.png" height="400"/> <BR>
-
 **Lightwing**
  - This is a 'new' revision of the BLE-Saturn-3D that focuses on core functionality. This was optimized as the low cost option for home builders. At current, this is the advised version to use until development can progress farther on the extra features of the HeavyWing 
 - PCB: https://oshpark.com/shared_projects/7RqwDWJT 
 <BR><img src="https://i.imgur.com/UOWCkPk.jpg" height="400"/> <img src="https://i.imgur.com/fSMhvSw.png" height="400"/> <BR>
 
+**Heavywing**
+- The original PCB. Take the above patents put them in a blender. It adds LCD Support, Motion Controls & Rumble. You can use the Lightwing code (better performance) on a Heavywing PCB but will need to change some pin mappings.
+- PCB: https://oshpark.com/shared_projects/ki7HbZV4
+<BR> <img src="https://i.imgur.com/oe6XZfD.png" height="400"/> <BR>
+
+
+
 
 ## **BOM** ##
  ## Lightwing ##
- - 1x Lightwing PCB
+ - 1x [Lightwing PCB](https://oshpark.com/shared_projects/7RqwDWJT)
  - 1x [Adafruit Feather Huzzah32](https://www.adafruit.com/product/3405)
  - 1x Battery
 
 ## Heavywing ##
- - 1x Heavywing PCB
+ - 1x [Heavywing PCB](https://oshpark.com/shared_projects/ki7HbZV4)
  - 1x [Adafruit Feather Huzzah32](https://www.adafruit.com/product/3405) 
  - 1x [HiLetgo GY-521 Tilt Sensor](http://hiletgo.com/ProductDetail/2157948.html)* AKA MPU-6050 (optional - while it does "work" the kalman filter needs some rework. Must support 3.3v, some are 5v only) 
 - 1x OLED 128X64 SSD1306 (optional)
