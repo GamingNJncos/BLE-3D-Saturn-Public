@@ -9,33 +9,35 @@ For years I've dreamed of a wireless Sega Saturn 3d Pad, just like the patents i
 - US Patent Number US 7488,254 B2 https://patentimages.storage.googleapis.com/a2/97/47/e77a8c63165461/US7488254.pdf
 - US Patent Number Des. 409, 149   https://patentimages.storage.googleapis.com/3d/96/ad/edd675699738cf/USD409149.pdf
 - European Patent Number EP 1 332 778 B1 https://patentimages.storage.googleapis.com/ed/ba/17/c22422d5d3cc47/EP1332778B1.pdf
+![An inspiration image I have been using in development](https://i.imgur.com/Myag1Ka.png) 
 
-
-Fast forward many years,I stumbled across some work Hexfreq was doing with arduino and the 3d and asked if I could take a look at the code. The rest is history.
-From there Humble Bazooka https://www.humblebazooka.com and I have spent countless hours to make sure this was a reality. darthcloud has also been an immense help along the way.
+Fast forward many years, I stumbled across some work [Hexfreq](https://twitter.com/hexfreq) was doing with arduino and asked if I could take a look at the code. The rest is history.
+From there [Humble Bazooka](https://twitter.com/humblebazooka) and I have spent countless hours to make sure this was a reality. darthcloud has also been an immense help along the way.
 
 ## **PCBs** ##
 There are 2 publicly availble DIY pcb's for "dev kits". There are various issues with them and aren't intended for retail use, but you can build one yourself today.
 
 **Heavywing**
 - The original PCB. Take the above patents put them in a blender. It adds LCD Support, Motion Controls & Rumble. You can use the Lightwing code (better performance) on a Heavywing PCB but will need to change some pin mappings.
-PCB: https://oshpark.com/shared_projects/ki7HbZV4
+- PCB: https://oshpark.com/shared_projects/ki7HbZV4
+<BR> <img src="https://i.imgur.com/oe6XZfD.png" height="400"/> <BR>
 
 **Lightwing**
  - This is a 'new' revision of the BLE-Saturn-3D that focuses on core functionality. This was optimized as the low cost option for home builders. At current, this is the advised version to use until development can progress farther on the extra features of the HeavyWing 
-PCB: https://oshpark.com/shared_projects/7RqwDWJT
+- PCB: https://oshpark.com/shared_projects/7RqwDWJT 
+<BR><img src="https://i.imgur.com/UOWCkPk.jpg" height="400"/> <img src="https://i.imgur.com/fSMhvSw.png" height="400"/> <BR>
 
 
 ## **BOM** ##
  ## Lightwing ##
  - 1x Lightwing PCB
- - 1x Adafruit Feather Huzzah32
+ - 1x [Adafruit Feather Huzzah32](https://www.adafruit.com/product/3405)
  - 1x Battery
 
 ## Heavywing ##
  - 1x Heavywing PCB
- - 1x Adafruit Feather Huzzah32 
- - 1x HiLetgo GY-521 Tilt Sensor* (optional - while it does "work" the kalman filter needs some rework. Must support 3.3v, some are 5v only) 
+ - 1x [Adafruit Feather Huzzah32](https://www.adafruit.com/product/3405) 
+ - 1x [HiLetgo GY-521 Tilt Sensor](http://hiletgo.com/ProductDetail/2157948.html)* AKA MPU-6050 (optional - while it does "work" the kalman filter needs some rework. Must support 3.3v, some are 5v only) 
 - 1x OLED 128X64 SSD1306 (optional)
 - 1x 5v Rumble Motor* (optional - this circuit is not populated on the PCB currently)
 - 1x Battery
