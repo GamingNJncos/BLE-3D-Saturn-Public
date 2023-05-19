@@ -1,7 +1,14 @@
-# BLE-3D-Saturn-Public
+# BLE-3D #
 Sega Saturn 3D Controller Bluetooth(BLE) Adapter
 
-# BLE-3D #
+## **What does it do?** ##
+- This is an open source and completely solderless adapter for the Sega Saturn 3D Controller that converts it to a Bluetooth(BLE) HID Gamepad. 
+- The end result demonstrates a battery powered and solderless adapter that allows you to use one of the best controllers ever made to date across numerous consoles
+### Highlights ###
+- **Zero modifications to the factory controller** are neccesary to build, test, or play with this adapter.
+- Both Analog, and Digital mode (switch on controller) are fully supported
+- Want to revert back to OE? Simply plug the OE cable back in. 
+- Latency testing pin on-pcb offers consistent and reproducible testing across code changes and development
 
 ## **Background** ##
 For years I've dreamed of a wireless Sega Saturn 3d Pad, just like the patents intended.
@@ -12,32 +19,35 @@ For years I've dreamed of a wireless Sega Saturn 3d Pad, just like the patents i
 ![An inspiration image I have been using in development](https://i.imgur.com/Myag1Ka.png) 
 
 Fast forward many years, I stumbled across some work [Hexfreq](https://twitter.com/hexfreq) was doing with arduino and asked if I could take a look at the code. The rest is history.
-From there [Humble Bazooka](https://twitter.com/humblebazooka) and I have spent countless hours to make sure this was a reality. darthcloud has also been an immense help along the way.
+From there [Humble Bazooka](https://twitter.com/humblebazooka) and I have spent countless hours to make sure this was a reality. I'd be remissed to leave out [darthcloud](https://twitter.com/darthcloud64) has also been an immense help along the way.
 
 ## **PCBs** ##
-There are 2 publicly availble DIY pcb's for "dev kits". There are various issues with them and aren't intended for retail use, but you can build one yourself today.
+- There are 2 publicly availble DIY pcb's for "dev kits". 
+- There are various issues or design misses with both pcbs
+- They aren't intended for retail use, but you can build one yourself **today**.
 
-**Lightwing**
+**LightWing**
  - This is a 'new' revision of the BLE-Saturn-3D that focuses on core functionality. This was optimized as the low cost option for home builders. At current, this is the advised version to use until development can progress farther on the extra features of the HeavyWing 
 - PCB: https://oshpark.com/shared_projects/7RqwDWJT 
 <BR><img src="https://i.imgur.com/UOWCkPk.jpg" height="400"/> <img src="https://i.imgur.com/fSMhvSw.png" height="400"/> <BR>
 
-**Heavywing**
-- The original PCB. Take the above patents put them in a blender. It adds LCD Support, Motion Controls & Rumble. You can use the Lightwing code (better performance) on a Heavywing PCB but will need to change some pin mappings.
+**HeavyWing**
+- The original PCB. Take the above patents put them in a blender. It adds LCD Support, Motion Controls & Rumble. You can use the LightWing code (better performance) on a Heavywing PCB but will need to change some pin mappings.
 - PCB: https://oshpark.com/shared_projects/ki7HbZV4
 <BR> <img src="https://i.imgur.com/oe6XZfD.png" height="400"/> <BR>
 
 
 
 
+
 ## **BOM** ##
- ## Lightwing ##
- - 1x [Lightwing PCB](https://oshpark.com/shared_projects/7RqwDWJT)
+ ## LightWing ##
+ - 1x [LightWing PCB](https://oshpark.com/shared_projects/7RqwDWJT)
  - 1x [Adafruit Feather Huzzah32](https://www.adafruit.com/product/3405)
  - 1x Battery
 
-## Heavywing ##
- - 1x [Heavywing PCB](https://oshpark.com/shared_projects/ki7HbZV4)
+## HeavyWing ##
+ - 1x [HeavyWing PCB](https://oshpark.com/shared_projects/ki7HbZV4)
  - 1x [Adafruit Feather Huzzah32](https://www.adafruit.com/product/3405) 
  - 1x [HiLetgo GY-521 Tilt Sensor](http://hiletgo.com/ProductDetail/2157948.html)* AKA MPU-6050 (optional - while it does "work" the kalman filter needs some rework. Must support 3.3v, some are 5v only) 
 - 1x OLED 128X64 SSD1306 (optional)
@@ -45,17 +55,25 @@ There are 2 publicly availble DIY pcb's for "dev kits". There are various issues
 - 1x Battery
 
 ## **Assembly** ##
-Assembly is straightforward, it's just a PCB sandwhich and some solder but orientation might be counter intuitive.
- ## Lightwing ##
-   - Pictures to be uploaded soon
+- Assembly is straightforward, it's just a PCB sandwhich and some solder
+- Orientation might be counter intuitive
 
-  
- ## **Heavywing** ##
+ ## LightWing ##
+ ### LightWing - Assembly ###
+- When you build this lay Segata Face-Down, then set the Feather through the holes with the ESP, USB, and Battery plug facing you
+- This provies some additional space for the battery directly under the PCB which would closet match the original patent docs visually
+<BR><img src="https://i.imgur.com/34AWDPJ.png" height="400"/> <img src="https://i.imgur.com/f7SZWjN.png" height="400"/> <BR>
+### LightWing - Installation ###
+- Sega Logo and Button Face top
+- Segata faces triggers or back of controller
+<img src="https://i.imgur.com/QNJOK90.jpg" height="400"/> <img src="https://i.imgur.com/H4lsmWy.jpg" height="400"/> <BR>  <BR>
+
+ ## **HeavyWing** ##
    - *Pictures to be uploaded soon*
   
   
 ## **Before you compile the code** ##
-If you are mixing and matching lightwing code with the heavywing PCB, make sure you change the pinmapping. 
+If you are mixing and matching LightWing code with the HeavyWing PCB, make sure you change the pinmapping. 
 
 This is well documented in the code if you jump to "Pinmappings for your PCB version"
 
@@ -91,14 +109,20 @@ This is well documented in the code if you jump to "Pinmappings for your PCB ver
 
 
 ## Various Demos and feature teasers ##
-Taking Nights for a spin over Bluetooth https://twitter.com/GamingNJncos/status/1537364206881755136
-LCD and customizable Boot Logo https://twitter.com/GamingNJncos/status/1532819934551724033
-Pad Test Demo in X-Men COTA https://twitter.com/GamingNJncos/status/1537362477817765889
-Steamdek test https://twitter.com/GamingNJncos/status/1540845741710745602
+- [Taking Nights for a spin over Bluetooth](https://twitter.com/GamingNJncos/status/1537364206881755136)
+- [LCD and customizable Boot Logo](https://twitter.com/GamingNJncos/status/1532819934551724033)
+- [Pad Test Demo in X-Men COTA](https://twitter.com/GamingNJncos/status/1537362477817765889)
+- [Steamdek Test](https://twitter.com/GamingNJncos/status/1540845741710745602)
+- [Early External Unit Testing](https://twitter.com/GamingNJncos/status/1404144038693986307)
 
+## Latency Testing ##
+- A significant amount of consideration went into making it easy to test code changes and the impact on latency
+- The Lightwing PCB has a dedicated solder pad for consistent testing methodology and code incorporates easy to toggle enable/disable for the pin
+- Documentation on process is available [here](https://github.com/GamingNJncos/BLE-3D-Saturn-Public/tree/main/BlueRetro_Latency_Testing)
 
-## **Note on the Boot Logos (only in heavywing)** ##
+## **Note on the Boot Logos (Supported on HeavyWing PCB)** ##
 This is documented in the code however if you want to convert images this tool is really useful https://lcd-image-converter.riuson.com/en/about/ 
+<BR> <img src="https://i.imgur.com/MSQY0Gh.jpg" height="400"/> <BR>
 
 
 ## Whats with the Names? ##
@@ -107,7 +131,7 @@ https://panzerdragoon.fandom.com/wiki/Heavy_Wing
 https://panzerdragoon.fandom.com/wiki/Light_Wing
 
 
-## **Strange notes and pedantic details. ** ##
+# **Strange notes and pedantic details ** #
  ## Protocol Details and Resources ##
  - A great overview across numerous sega consoles https://hackaday.io/project/170365-blueretro/log/180790-evolution-of-segas-io-interface-from-sg-1000-to-saturn
  - Additional protocol details for the Saturn http://forums.modretro.com/index.php?threads/saturn-controller-protocol-mk80116-mk80100.11328/
@@ -115,7 +139,7 @@ https://panzerdragoon.fandom.com/wiki/Light_Wing
  ## Saturn 3D supported Game list, patent details, and more ##
 https://segaretro.org/3D_Control_Pad
  
- ## Polling oddity or Opportunity? ## 
+ ## Polling Oddity or Opportunity? ## 
 The saturn only polls the 3D protocol at 16ms intervals (screen blank). There is however some suggestion in the below post that the Action Replay (this is firmware version specific) can attempt polling faster.  It's worth taking a look at as it may be possible to force games into a faster mode with patching.
 
 https://nfggames.com/forum2/index.php?topic=5055.0
