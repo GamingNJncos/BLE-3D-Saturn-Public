@@ -102,19 +102,19 @@ From there [Humble Bazooka](https://twitter.com/humblebazooka) and I have spent 
 
 <BR><BR> 
 # **Caveats and Gotchas** #
- - ## Battery Warning ##
+ ## Battery Warning ##
   - It is *extremely* important that you check the polarity on your battery jack is oriented correctly. There is 0 polarity protection. The charging circuit WILL fry if you plug it in and it's backwards.
 
- - ## Powering Down ##
+ ## Powering Down ##
   - Due to the design of the adafruit feather (esp32) there is no formal power switch. 
   - You must either solder a physical switch on to the battery, **or** unplug it. This is not always easy with the JST connector used so be careful.
  
-  - ## Charging ##
+  ## Charging ##
    - Another unfortunate aspect of the power circuit design on the feather is that the device must be powered on to charge. 
    - There is no "charging mode" so anytime the controller needs to charge it will be broadcasting. 
    - Deep sleep is the best solution for this long term but there are reassons it's not included just yet.
 
-  - ## Missing Trigger ##
+  ## Missing Trigger ##
    - In windows if you go to look at the button inputs in joy.cpl the right trigger is not displayed.  
    - The trigger is there, but you have to use another pad tester to "see it".
   - The picture below *is the expected behavior* and appears to be a problem with joy.cpl in particular.
