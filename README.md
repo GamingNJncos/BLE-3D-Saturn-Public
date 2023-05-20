@@ -4,17 +4,23 @@ Sega Saturn 3D Controller Bluetooth(BLE) Adapter
 # **What does it do?** #
 - This is an open source and completely solderless adapter for the Sega Saturn 3D Controller that converts it to a Bluetooth(BLE) HID Gamepad. 
 - The end result demonstrates a battery powered and solderless adapter that allows you to use one of the best controllers ever made to date across numerous consoles
+
 ### Highlights ###
 - **Zero modifications to the factory controller** are neccesary to build, test, or play with this adapter.
 - Both Analog, and Digital mode (switch on controller) are fully supported
 - Want to revert back to OE? Simply plug the OE cable back in. 
 - Latency testing pin on-pcb offers consistent and reproducible testing across code changes and development
 
+### Lowlights ###
+- This isn't a "retail ready product", it's a proof of concept
+- No case for this has been published yet (bare pcb)
+- Power circuit has a couple issues. More details in Caveats section
+
+
 # **Compatibility** #
  This is an area I'm extremely proud of as of writing the BLE3D is known to work with: 
   - Windows, Linux, and Steamdeck
-  - ALL supported Blueretro https://github.com/darthcloud/BlueRetro consoles 
-
+  - ALL supported [Blueretro](https://github.com/darthcloud/BlueRetro) consoles 
   - That means the 3D is now available on (in no particular order)
         - NeoGeo, Supergun, JAMMA
 	- Atari 2600/7800, Master System
@@ -23,22 +29,22 @@ Sega Saturn 3D Controller Bluetooth(BLE) Adapter
 	- JVS (Arcade), Virtual Boy, N64, Dreamcast, PS2, GameCube & Wii
 	- I'm sure I'm missing a handful
  
-  - Note the analog pad/triggers support are per console, there is no 'digital emulation' on the analog stick.
+  - Note: the analog pad/triggers support are per console, there is no 'digital emulation' on the analog stick.
 
 
 # **Background** #
 For years I've dreamed of a wireless Sega Saturn 3d Pad, just like the patents intended.
 
-- US Patent Number US 7488,254 B2 https://patentimages.storage.googleapis.com/a2/97/47/e77a8c63165461/US7488254.pdf
-- US Patent Number Des. 409, 149   https://patentimages.storage.googleapis.com/3d/96/ad/edd675699738cf/USD409149.pdf
-- European Patent Number EP 1 332 778 B1 https://patentimages.storage.googleapis.com/ed/ba/17/c22422d5d3cc47/EP1332778B1.pdf
+- [US Patent Number US 7488,254 B2](https://patentimages.storage.googleapis.com/a2/97/47/e77a8c63165461/US7488254.pdf)
+- [US Patent Number Des. 409, 149](https://patentimages.storage.googleapis.com/3d/96/ad/edd675699738cf/USD409149.pdf)
+- [European Patent Number EP 1 332 778 B1](https://patentimages.storage.googleapis.com/ed/ba/17/c22422d5d3cc47/EP1332778B1.pdf)
 ![An inspiration image I have been using in development](https://i.imgur.com/Myag1Ka.png) 
 
 Fast forward many years, I stumbled across some work [Hexfreq](https://twitter.com/hexfreq) was doing with arduino and asked if I could take a look at the code. The rest is history.
 From there [Humble Bazooka](https://twitter.com/humblebazooka) and I have spent countless hours to make sure this was a reality. I'd be remissed to leave out [darthcloud](https://twitter.com/darthcloud64) has also been an immense help along the way.
 
 # **PCBs** #
-- There are 2 publicly availble DIY pcb's for "dev kits". 
+- There are 2 publicly available DIY pcb's for "dev kits". 
 - There are various issues or design misses with both pcbs
 - They aren't intended for retail use, but you can build one yourself **today**.
 - Beveling the controller facing pins is advised 
@@ -100,14 +106,18 @@ From there [Humble Bazooka](https://twitter.com/humblebazooka) and I have spent 
   - It is *extremely* important that you check the polarity on your battery jack is oriented correctly. There is 0 polarity protection. The charging circuit WILL fry if you plug it in and it's backwards.
 
  - ## Powering Down ##
-  - Due to the design of the adafruit feather (esp32) there is no formal power switch. You either need to solder a physical switch on to the battery, or unplug it. This is not always easy with the JST connector used so be careful.
+  - Due to the design of the adafruit feather (esp32) there is no formal power switch. 
+  - You must either solder a physical switch on to the battery, **or** unplug it. This is not always easy with the JST connector used so be careful.
  
   - ## Charging ##
-   - Another unfortunate aspect of the power circuit design on the feather is that the device must be powered on to charge. There is no "charging mode" so anytime the controller needs to charge it will be broadcasting. Deep sleep is the best solution for this long term but there are reassons it's not included just yet.
+   - Another unfortunate aspect of the power circuit design on the feather is that the device must be powered on to charge. 
+   - There is no "charging mode" so anytime the controller needs to charge it will be broadcasting. 
+   - Deep sleep is the best solution for this long term but there are reassons it's not included just yet.
 
   - ## Missing Trigger ##
-   - In windows if you go to look at the button inputs in joy.cpl the right trigger is not displayed.  The trigger is there, but you have to use another pad tester to "see it". If your trigger is not shown like this image, that's expected and appears to be a problem with joy.cpl in particular.
-  - The picture below *is the expected behavior*
+   - In windows if you go to look at the button inputs in joy.cpl the right trigger is not displayed.  
+   - The trigger is there, but you have to use another pad tester to "see it".
+  - The picture below *is the expected behavior* and appears to be a problem with joy.cpl in particular.
 	<BR><img src="https://i.imgur.com/XALRnzy.png" height="400"/> <BR> <BR>
 
 
@@ -129,7 +139,8 @@ This is documented in the code however if you want to convert images [this tool]
 
 
 ## Whats with the Names? ##
-Having some background on the feather platform, I went this route for personal ease in development.  Feather add-ons or expansions (hat equivalent for raspberry pi) are called "Wings". Combine that with some Sega nerd-lore and you the [Heavy Wing](https://panzerdragoon.fandom.com/wiki/Heavy_Wing) and [Light Wing](https://panzerdragoon.fandom.com/wiki/Light_Wing)
+- Feather add-ons or expansions (hat equivalent for raspberry pi) are called "Wings". 
+- Combine that with some Sega nerd-lore and you the [Heavy Wing](https://panzerdragoon.fandom.com/wiki/Heavy_Wing) and [Light Wing](https://panzerdragoon.fandom.com/wiki/Light_Wing)
 
 <BR><BR>
 
