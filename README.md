@@ -63,9 +63,9 @@ From there [Humble Bazooka](https://twitter.com/humblebazooka) and I have spent 
 ## HeavyWing ##
  - 1x [HeavyWing PCB](https://oshpark.com/shared_projects/ki7HbZV4)
  - 1x [Adafruit Feather Huzzah32](https://www.adafruit.com/product/3405) 
- - 1x [HiLetgo GY-521 Tilt Sensor](http://hiletgo.com/ProductDetail/2157948.html)* AKA MPU-6050 (optional - while it does "work" the kalman filter needs some rework. Must support 3.3v, some are 5v only) 
+ - 1x [HiLetgo GY-521 AKA MPU-6050 Tilt Sensor](http://hiletgo.com/ProductDetail/2157948.html)*  (optional - while it does "work" the kalman filter needs some rework. Must support 3.3v, some are 5v only) 
 - 1x OLED 128X64 SSD1306 (optional)
-- 1x 5v Rumble Motor* (optional - this circuit is not populated on the PCB currently)
+- 1x 3.3v Rumble Motor* (optional - this circuit is not populated on the PCB currently)
 - 1x Battery
 <BR><BR> 
 	
@@ -73,17 +73,17 @@ From there [Humble Bazooka](https://twitter.com/humblebazooka) and I have spent 
 - Assembly is straightforward, it's just a PCB sandwhich and some solder
 - Orientation might be counter intuitive
 
- ### LightWing - Assembly ###
+ ### **LightWing - Assembly** ###
 - When you build this lay Segata Face-Down, then set the Feather through the holes with the ESP, USB, and Battery plug facing you
 - This provies some additional space for the battery directly under the PCB which would closet match the original patent docs visually
 <BR><img src="https://i.imgur.com/34AWDPJ.png" height="400"/> <img src="https://i.imgur.com/f7SZWjN.png" height="400"/> <BR>
 
-### LightWing - Installation ###
+ ### **LightWing - Installation** ###
 - Sega Logo and Button Face top
 - Segata faces triggers or back of controller
 <BR> <img src="https://i.imgur.com/QNJOK90.jpg" height="400"/> <img src="https://i.imgur.com/H4lsmWy.jpg" height="400"/> <BR>  <BR>
 
-  ### HeavyWing - Assembly ###
+  ### **HeavyWing - Assembly** ###
    - *Pictures to be uploaded soon*
   
 <BR><BR>  
@@ -124,7 +124,7 @@ From there [Humble Bazooka](https://twitter.com/humblebazooka) and I have spent 
 - Documentation on the process is available [here](https://github.com/GamingNJncos/BLE-3D-Saturn-Public/tree/main/BlueRetro_Latency_Testing)
 
 ## **Note on the Boot Logos (Supported on HeavyWing PCB)** ##
-This is documented in the code however if you want to convert images this tool is really useful https://lcd-image-converter.riuson.com/en/about/ 
+This is documented in the code however if you want to convert images [this tool](https://lcd-image-converter.riuson.com/en/about/) is really useful  
 <BR> <img src="https://i.imgur.com/MSQY0Gh.jpg" height="400"/> <BR>
 
 
@@ -156,3 +156,7 @@ Qoute:
  - This is subject to change long term as new and improved libraries emerge to support BLE HID gamepads
 
 - [NimBLE-Arduino](https://github.com/h2zero/NimBLE-Arduino)
+
+## **Details on the Feather** ##
+- If you want to remix the PCB's or understand more about the feather itself check out the following
+- [Feather Pinouts and hardware overview](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/pinouts)
