@@ -94,8 +94,8 @@ From there [Humble Bazooka](https://twitter.com/humblebazooka) and I have spent 
   
 <BR><BR>  
 # **Before you compile the code** #
-- You will need the appropriate configuration for vscode and the [platformio.ini](https://github.com/GamingNJncos/BLE-3D-Saturn-Public/blob/main/platformio.ini)
-- Not tested with Arduino IDE
+- [PlatformIO installed in VScode](https://docs.platformio.org/en/stable/tutorials/espressif32/arduino_debugging_unit_testing.html), the [platformio.ini]](https://github.com/GamingNJncos/BLE-3D-Saturn-Public/blob/main/platformio.ini), and the main.cpp for the Lightwing or the Heavywing
+- This has not tested with Arduino IDE
 - If you are mixing and matching LightWing code with the HeavyWing PCB, make sure you change the pinmapping. 
 - This is well documented in the code if you jump to "Pinmappings for your PCB version"
 
