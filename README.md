@@ -75,13 +75,6 @@ From there [Humble Bazooka](https://twitter.com/humblebazooka) and I have spent 
 - 1x Battery
 <BR><BR> 
 
-## Powering the Device ##
-This is direct from the [Adafruit Documentation](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/power-management)
-- There's two ways to power a Feather:
-- **You can connect with a USB cable** (just plug into the jack) and the Feather will regulate the 5V USB down to 3.3V.
--  **You can also connect a 4.2/3.7V Lithium Polymer** (LiPo/LiPoly) or Lithium Ion (LiIon) battery to the JST jack. This will let the Feather run on a rechargeable battery.
--  **When the USB power is powered, it will automatically switch over to USB for power**, as well as start charging the battery (if attached). 
-- **This happens 'hot-swap' style** so you can always keep the LiPoly connected as a 'backup' power that will only get used when USB power is lost.
 	
 # **Assembly** #
 - Assembly is straightforward, it's just a PCB sandwhich and some solder
@@ -107,6 +100,13 @@ This is direct from the [Adafruit Documentation](https://learn.adafruit.com/adaf
 - If you are mixing and matching LightWing code with the HeavyWing PCB, make sure you change the pinmapping. 
 - This is well documented in the code if you jump to "Pinmappings for your PCB version"
 
+## Powering the Device ##
+This is direct from the [Adafruit Documentation](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/power-management)
+- There's two ways to power a Feather:
+- **You can connect with a USB cable** (just plug into the jack) and the Feather will regulate the 5V USB down to 3.3V.
+-  **You can also connect a 4.2/3.7V Lithium Polymer** (LiPo/LiPoly) or Lithium Ion (LiIon) battery to the JST jack. This will let the Feather run on a rechargeable battery.
+-  **When the USB power is powered, it will automatically switch over to USB for power**, as well as start charging the battery (if attached). 
+- **This happens 'hot-swap' style** so you can always keep the LiPoly connected as a 'backup' power that will only get used when USB power is lost.
 
 <BR><BR> 
 # **Caveats and Gotchas** #
@@ -118,12 +118,7 @@ This is direct from the [Adafruit Documentation](https://learn.adafruit.com/adaf
   
   - On Wroom-E when the pcb is plugged into the controller at boot similar to boot:0x33 (SPI_FAST_FLASH_BOOT) **invalid header: 0xffffffff**
   - You can burn an efuse to work around this with the espefuse tool. Note this is irreversible, if you are uncomfortable with this try to find another vendor with the 32D in stock   - How to burn the efuse: `espefuse.py --port [com port] --baud 115200 set_flash_voltage 3.3V` confirm the fuse status with `espefuse -p [com port] --baud 115200 summary`. At the bottom it will say **Flash voltage (VDD_SDIO) set to 3.3V by efuse.**
-
-if you run this after 
-` espefuse -p /dev/ttyUSB0 --baud 115200 summary`
-
-At the bottom it will say 
-**Flash voltage (VDD_SDIO) set to 3.3V by efuse.**
+- At the bottom it will say **Flash voltage (VDD_SDIO) set to 3.3V by efuse.**
 
  ## Battery Warning ##
   - It is *extremely* important that you check the polarity on your battery jack is oriented correctly. There is 0 polarity protection. The charging circuit WILL fry if you plug it in and it's backwards.
