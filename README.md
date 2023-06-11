@@ -74,6 +74,14 @@ From there [Humble Bazooka](https://twitter.com/humblebazooka) and I have spent 
 - 1x 3.3v Rumble Motor* (optional - this circuit is not populated on the PCB currently)
 - 1x Battery
 <BR><BR> 
+
+## Powering the Device ##
+This is direct from the [Adafruit Documentation](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/power-management)
+- There's two ways to power a Feather:
+- **You can connect with a USB cable** (just plug into the jack) and the Feather will regulate the 5V USB down to 3.3V.
+-  **You can also connect a 4.2/3.7V Lithium Polymer** (LiPo/LiPoly) or Lithium Ion (LiIon) battery to the JST jack. This will let the Feather run on a rechargeable battery.
+-  **When the USB power is powered, it will automatically switch over to USB for power**, as well as start charging the battery (if attached). 
+- **This happens 'hot-swap' style** so you can always keep the LiPoly connected as a 'backup' power that will only get used when USB power is lost.
 	
 # **Assembly** #
 - Assembly is straightforward, it's just a PCB sandwhich and some solder
@@ -102,6 +110,21 @@ From there [Humble Bazooka](https://twitter.com/humblebazooka) and I have spent 
 
 <BR><BR> 
 # **Caveats and Gotchas** #
+ ## A Note on the Huzzah32 revisions ##
+  - Check your WROOM version before flashing!
+  - There is a NEW revision of the huzzah32 shipping with the Wroom-32-**E** that will have some problems initially when plugged into the controller
+  - This is a result of changes to pin IO12 between the D and E modules (and a bootstrap pin) 
+  - PCB's were made based on result on the Wroom-32-**D** module and have no issues "out of the box"
+  
+  - On Wroom-E when the pcb is plugged into the controller at boot similar to boot:0x33 (SPI_FAST_FLASH_BOOT) **invalid header: 0xffffffff**
+  - You can burn an efuse to work around this with the espefuse tool. Note this is irreversible, if you are uncomfortable with this try to find another vendor with the 32D in stock   - How to burn the efuse: `espefuse.py --port [com port] --baud 115200 set_flash_voltage 3.3V` confirm the fuse status with `espefuse -p [com port] --baud 115200 summary`. At the bottom it will say **Flash voltage (VDD_SDIO) set to 3.3V by efuse.**
+
+if you run this after 
+` espefuse -p /dev/ttyUSB0 --baud 115200 summary`
+
+At the bottom it will say 
+**Flash voltage (VDD_SDIO) set to 3.3V by efuse.**
+
  ## Battery Warning ##
   - It is *extremely* important that you check the polarity on your battery jack is oriented correctly. There is 0 polarity protection. The charging circuit WILL fry if you plug it in and it's backwards.
 
